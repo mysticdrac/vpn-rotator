@@ -35,6 +35,12 @@ namespace vpnrotator
             }
         }
 
+        void ErrordataHandler(object sendingProcess, DataReceivedEventArgs outLine) {
+            if(!_event.WaitOne(0))
+                _event.Set();
+        }
+
+
         void SortOutputHandler(object sendingProcess,
         DataReceivedEventArgs outLine){
           if (this.textBox1.InvokeRequired) { textBox1.BeginInvoke(new DataReceivedEventHandler(SortOutputHandler), new[] { sendingProcess, outLine }); }
@@ -59,10 +65,11 @@ namespace vpnrotator
                 s.CreateNoWindow = true;
                 s.RedirectStandardInput = true;
                 s.RedirectStandardOutput = true;
+                s.RedirectStandardError = true;
                 s.UseShellExecute = false;
                 p = Process.Start(s);
                 p.OutputDataReceived += new DataReceivedEventHandler(SortOutputHandler);
-
+                p.ErrorDataReceived += new DataReceivedEventHandler(ErrordataHandler);
                 p.BeginOutputReadLine();
                 /*
                 while (!p.HasExited)
