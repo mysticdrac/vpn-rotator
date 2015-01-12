@@ -18,3 +18,8 @@ You should have received a copy of the GNU General Public License along with thi
 # Using the code
 
 The code is created in c# using visual studio, the users must run visual studio with admin priviledge in order to enable software change the routing table.
+
+You must already have openvpn installed on your windows 32 bit machine, Openvpn could be downloaded at https://openvpn.net/index.php/open-source/downloads.html
+
+Add directory for openvpn to your PATH ENVIRONMENT VARIABLE using command line:
+SET PATH=%PATH%;C:\\DIRECTORY TO OPENVPN PROGRAM
