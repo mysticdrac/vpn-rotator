@@ -22,4 +22,5 @@ The code is created in c# using visual studio, the users must run visual studio 
 You must already have openvpn installed on your windows 32 bit machine, Openvpn could be downloaded at https://openvpn.net/index.php/open-source/downloads.html
 
 Add directory for openvpn to your PATH ENVIRONMENT VARIABLE using command line:
+
 SET PATH=%PATH%;C:\\DIRECTORY TO OPENVPN PROGRAM
